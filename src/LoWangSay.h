@@ -30,8 +30,8 @@ struct FortuneCookie
 #define STRINGIFY(x) #x
 
 // --- __COUNTER__ is non-standard but works in gcc, clang and msvc after all
-// --- The conformant approach is to a template-based, compile-time counter
-// --- The static assert is triggered when the specialized template's static member N is equal to the random index
+// --- The conformant approach is to implement a template-based, compile-time counter
+// --- The static assert is triggered when the specialized template's static member value is equal to the random index
 #define ADD_QUOTE(quoteIdx, quoteText) \
 static_assert(FortuneCookie<quoteIdx>::value != randomIdx, "Quote " STRINGIFY(quoteIdx) " : " quoteText);
 
